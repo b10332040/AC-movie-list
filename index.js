@@ -143,17 +143,12 @@ function onSearchFormSubmit (event) {
   
 
   if (!keyword.length) {
+    filteredMovies = []
     for (const movie of movies) {
       filteredMovies.push(movie)
     }
 
   } else {
-    // for (const movie of movies) {
-    //   if (movie.title.toLowerCase().includes(keyword)) {
-    //     filteredMovies.push(movie)
-    //   }
-    // }
-    
     filteredMovies = movies.filter((movie) => movie.title.toLowerCase().includes(keyword))
   }
 
@@ -165,7 +160,6 @@ function onSearchFormSubmit (event) {
 
   renderPaginator(filteredMovies.length)
   renderMovieList(getMoviesByPage(currentPage), currentMode)
-  searchInput.value = ''
 }
 
 
